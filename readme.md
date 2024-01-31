@@ -75,3 +75,16 @@ Senão, utilize o comando abaixo antes de executar o backend novamente:
 ## Documentação da API:
 > http://localhost:8080/swagger-ui.html
 >
+<p align="center">
+  <img width="860" height="500" src="desafio-cartas/src/main/resources/assets/swagger_ui.png">
+</p>
+
+# Diagrama da Base de Dados
+<p align="center">
+  <img width="500" height="400" src="desafio-cartas/src/main/resources/assets/db_schm.png">
+</p>
+
+# Estrutura de Containers - Docker
+<p align="center">
+  <img width="500" height="400" src="desafio-cartas/src/main/resources/assets/docker_containers.png">
+</p>
