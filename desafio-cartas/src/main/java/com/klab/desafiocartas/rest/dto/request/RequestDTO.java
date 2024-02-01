@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class RequestDTO {
 
-    private int numberOfPlayers = Integer.parseInt(ParamsConstants.NUMBER_OF_PLAYERS);
-    private int drawSize = Integer.parseInt(ParamsConstants.DRAW_SIZE);
+    private int numberOfPlayers = ParamsConstants.getNumberOfPlayers();
+    private int drawSize = ParamsConstants.getDrawSize();
 
 }

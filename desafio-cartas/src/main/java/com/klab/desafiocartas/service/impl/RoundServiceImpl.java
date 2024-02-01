@@ -9,7 +9,6 @@ import com.klab.desafiocartas.rest.dto.PlayerDTO;
 import com.klab.desafiocartas.rest.dto.request.RequestDTO;
 import com.klab.desafiocartas.rest.dto.response.ResponseDTO;
 import com.klab.desafiocartas.rest.dto.response.RoundDTO;
-import com.klab.desafiocartas.service.CardService;
 import com.klab.desafiocartas.service.HandService;
 import com.klab.desafiocartas.service.RoundService;
 import com.klab.desafiocartas.service.converter.PlayerDTOConverter;
@@ -35,14 +34,14 @@ public class RoundServiceImpl implements RoundService {
 
     private final HandService handService;
 
-    private final CardService cardService;
-
     private final PlayerDTOConverter playerDTOConverter;
 
     Logger logger = Logger.getLogger(getClass().getName());
 
     private final RequestDTO request = new RequestDTO();
+
     private final int drawCount = request.getDrawSize();
+
     private final int playerCount = request.getNumberOfPlayers();
 
 
