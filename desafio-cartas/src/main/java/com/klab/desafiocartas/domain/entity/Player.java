@@ -31,4 +31,8 @@ public class Player {
         return this.playerHand.getHandSum();
     }
 
+    public void clearCards() {
+        this.playerHand = new Hand();
+    }
+
 }

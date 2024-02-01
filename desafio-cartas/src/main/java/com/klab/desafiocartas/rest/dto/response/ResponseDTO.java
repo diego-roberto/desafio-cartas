@@ -14,6 +14,6 @@ public class ResponseDTO {
     PlayerDTO winner;
     List<PlayerDTO> players;
     boolean hasWinner;
-    boolean isDraw;
+    boolean isTie;
     Long roundId;
 }

@@ -23,6 +23,9 @@ public class Hand {
     private List<Card> cards;
 
     public int getHandSum() {
+        if (cards == null) {
+            return 0;
+        }
         return cards.stream().mapToInt(Card::getIntValue).sum();
     }
 

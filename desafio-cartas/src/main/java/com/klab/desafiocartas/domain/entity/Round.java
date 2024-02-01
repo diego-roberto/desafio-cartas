@@ -51,11 +51,4 @@ public class Round {
                 );
     }
 
-    public void addPlayer(Player player) {
-        if (this.players == null) {
-            this.players = new ArrayList<>();
-        }
-        this.players.add(player);
-    }
-
 }
