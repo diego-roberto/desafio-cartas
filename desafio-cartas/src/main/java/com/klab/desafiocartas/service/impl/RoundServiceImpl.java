@@ -62,6 +62,11 @@ public class RoundServiceImpl implements RoundService {
     @Override
     public ResponseDTO drawCards(Long roundId) {
         Round round = findByRoundId(roundId);
+
+        if (round == null) {
+            throw new RoundNotFoundException(MessageConstants.MSG_OLD_ROUND_ID, roundId);
+        }
+
         Optional<Round> optLastRoundId = roundRepository.findLatestRoundByDeckId(round.getDeckId());
 
         if (optLastRoundId.isPresent()) {
@@ -89,7 +94,7 @@ public class RoundServiceImpl implements RoundService {
         }
 
         boolean hasWinner = round.getWinner().isPresent();
-        boolean isDraw = !hasWinner;
+        boolean isTie = !hasWinner;
 
         PlayerDTO winnerDTO = hasWinner ? playerDTOConverter.toDTO(round.getWinner().get()) : null;
 
@@ -98,12 +103,12 @@ public class RoundServiceImpl implements RoundService {
         if (hasWinner) {
              playersDTO = playerDTOConverter.toDTOListExcludingWinner(findPlayersByRoundId(roundId), winnerDTO.getPlayerId());
         }
-        if (isDraw) {
+        if (isTie) {
             playersDTO = findDrawPlayers(roundId);
             playersDTO.addAll(playersDTO);
         }
 
-        return new ResponseDTO(winnerDTO, playersDTO, hasWinner, isDraw, round.getRoundId());
+        return new ResponseDTO(winnerDTO, playersDTO, hasWinner, isTie, round.getRoundId());
     }
 
     private Round createPlayersForRound(Round round) {
@@ -139,7 +144,7 @@ public class RoundServiceImpl implements RoundService {
         return newRound;
     }
 
-    private Round findByRoundId(Long roundId) {
+    public Round findByRoundId(Long roundId) {
         return roundRepository.findById(roundId)
                 .orElseThrow(() -> new RoundNotFoundException(MessageConstants.MSG_ROUND_NOT_FOUND, roundId));
     }

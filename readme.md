@@ -15,6 +15,7 @@ Java 17 </br>
 Spring-boot 2.7.11</br>
 Swagger 3.0.0</br>
 JUnit 5.8.2</br>
+Mockito 3.11.2</br>
 Lombok 1.18.26</br>
 PostgreSQL 13</br>
 
