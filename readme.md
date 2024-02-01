@@ -70,6 +70,9 @@ Senão, utilize o comando abaixo antes de executar o backend novamente:
 > ./mvnw test
 >
 
+Porém, recomendo que os testes sejam executados pela IDE, devido a variáveis de ambiente e versões de Java e Maven.
+Cada classe de teste pode ser testada independente.
+
 <br></br>
 <img src="https://img.shields.io/badge/Swagger-85EA2D?style=for-the-badge&logo=Swagger&logoColor=white"/>
 ## Documentação da API:
